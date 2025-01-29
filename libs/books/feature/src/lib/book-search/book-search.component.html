@@ -35,6 +35,7 @@
               mat-flat-button
               color="primary"
               (click)="addBookToReadingList(book)"
+              data-testing="add-item"
               [disabled]="book.isAdded"
               aria-label="'want to Read '+ book.title"
             >
