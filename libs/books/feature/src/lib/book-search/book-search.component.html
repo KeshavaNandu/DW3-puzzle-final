@@ -36,6 +36,7 @@
               color="primary"
               (click)="addBookToReadingList(book)"
               [disabled]="book.isAdded"
+              data-testing="add-item"
               aria-label="'want to Read '+ book.title"
             >
               Want to Read
