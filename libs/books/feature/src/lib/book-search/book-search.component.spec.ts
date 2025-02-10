@@ -30,7 +30,7 @@ describe('ProductsListComponent', () => {
     fixture = TestBed.createComponent(BookSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    store = TestBed.inject(MockStore)
+    store = TestBed.inject(MockStore);
     spyOn(component.searchForm, 'valueChanges');
     spyOn(store, 'dispatch');
   });
@@ -39,7 +39,7 @@ describe('ProductsListComponent', () => {
     expect(component).toBeDefined();
   });
 
-  it('searchBook() should be called once the value changes and user waits for 500ms', fakeAsync(() => {
+  it('It should call searchBooks() when we have value for search term and actual time spent after entering search term is equal to 500ms', fakeAsync(() => {
     component.searchForm.controls.term.setValue('Angular')
     tick(500);
     component.searchForm.valueChanges.subscribe(() => {
@@ -47,7 +47,7 @@ describe('ProductsListComponent', () => {
     })
   }));
 
-  it('searchBook() should not be called once the value changes and user waits for 400ms', fakeAsync(() => {
+  it('It should not call searchBooks() when we have value for search term and actual time spent after entering search term is less than 500ms', fakeAsync(() => {
     component.searchForm.controls.term.setValue('Angular')
     tick(400);
     expect(store.dispatch).not.toBeCalled();
