@@ -1,4 +1,5 @@
 describe('When: I use the reading list feature', () => {
+  let readingItemsCount = 0;
   beforeEach(() => {
     cy.startAt('/');
     readingItemsCount = cy.$$('[data-testing="reading-list-item"]').length;

@@ -71,7 +71,7 @@ export class ReadingListEffects implements OnInitEffects {
     { dispatch : false}
   );
 
-  UndoRemoveFromReadingList$ = createEffect(() =>
+  undoRemoveFromReadingList$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ReadingListActions.removeFromReadingList),
       filter(( { item }) => item.isOpenSnackBar),
@@ -108,8 +108,10 @@ export class ReadingListEffects implements OnInitEffects {
     return ReadingListActions.init();
   }
 
-  constructor(private actions$: Actions, 
-              private http: HttpClient, 
-              private _snackBar: MatSnackBar, 
-              private store : Store) {}
+  constructor(
+    private actions$: Actions, 
+    private http: HttpClient, 
+    private _snackBar: MatSnackBar, 
+    private store : Store
+  ) {}
 }
